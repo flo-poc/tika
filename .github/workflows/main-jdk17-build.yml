@@ -18,8 +18,11 @@
 name: main jdk17 build
 
 on:
+  # Enable manually triggered workflow runs
+  workflow_dispatch:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
