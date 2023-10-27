@@ -293,12 +293,4 @@
   <scm>
     <tag>2.2.1-rc2</tag>
   </scm>
-
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/flo-poc/tika</url>
-    </repository>
-  </distributionManagement>
 </project>

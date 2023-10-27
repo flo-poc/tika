@@ -1281,4 +1281,13 @@
     <developerConnection>scm:git:https://github.com/apache/</developerConnection>
     <url>https://github.com/apache/tika</url>
   </scm>
+
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/flo-poc/tika</url>
+    </repository>
+  </distributionManagement>
 </project>

@@ -27,7 +27,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Build and Publish
+    name: Build, Test and Publish
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK ${{ matrix.java }}
@@ -35,9 +35,9 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Build with Maven
-        run: mvn --batch-mode -pl tika-core -pl :tika-parsers-standard-package clean test install javadoc:aggregate
+      - name: Build and Test with Maven
+        run: mvn -B -pl tika-core -pl :tika-parsers-standard clean install -am
       - name: Publish Internal tika-core and tika-parsers-standard-package
-        run: mvn --batch-mode -pl tika-core -pl :tika-parsers-standard-package -DskipTests -Dcheckstyle.skip deploy -am
+        run: mvn -B -pl :tika-parent -pl :tika-core -pl :tika-parsers-standard -pl :tika-parsers-standard-package -DskipTests -Dcheckstyle.skip deploy -am
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
